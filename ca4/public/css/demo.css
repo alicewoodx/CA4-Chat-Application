@@ -14,8 +14,16 @@ body {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
+.header2 {
+  text-align: center; 
+  font-size:40px;
+  color: white;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  width: 100%;
+}
+
 .divHeader{
-  padding:40px;
+  padding: 25px 25px 0px 25px;
 }
 
 .buttons {
@@ -41,4 +49,33 @@ button:hover{
 
 .active a {
   color: rgb(255, 234, 0) !important;
-}c
+}
+
+img {
+  border-radius: 20%;
+  float: right;
+  padding: 30px 50px 50px;
+}
+
+.parent{
+    position: relative;
+}
+.over-img{
+    position: absolute;
+  
+}
+.under-img{
+  padding-left: 600px;
+  padding-top: 350px;
+  padding-right: 300px ;
+}
+
+#leftColumn{
+  width:50%;
+  float:left;
+}
+
+#rightColumn{
+  width:50%;
+  float:right;
+}

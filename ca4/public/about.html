@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Alice Wood's Portfolio</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/demo.css">
+            <href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="js/client.js" async defer></script>
+    </head>
+    <body> 
+      <div class="divHeader" style="display:flex;justify-content:space-between">
+        <div>
+            <p class="header">More About Alice Wood...</p>
+        </div>
+        <div style="float:right;padding:10px">
+          <nav>
+              <button class="buttons"><a style="text-decoration: none;" href="index.html">Home</a></button>
+              <button class="buttons active"><a style="text-decoration: none;" href="about.html">About</a></button>
+              <button class="buttons"><a style="text-decoration: none; " href ="chat.html">Chat With Me!</a></button>
+          </nav>
+        </div>
+      </div>
+     <div style="display:flex;">
+        <div style="float:left;width:100%;padding-top:80px">
+          <button class="accordion"><p style="font-size:25px">Work Experience</p></button>
+          <div class="panel">
+            <p>I am a qualified Swimming Teacher. I first became an Assistant in 2018, which includes being in the water giving support to the swimmers. I completed my teaching qualification in October 2021, and am now fully qualified. I joined Aberdeen Swimming Acadmey in November 2022, and have since been promoted to being a partner within the business. Being a partner envolves attending meetings to discuss the achievements the company has made and how these achievements could be improved.  As a result of this qualification I can now demonstrate transferable skills such as leadership, adaptability, punctuality, patience, problem solving, ability to motivate and communicate effectively. Being a swimming teacher allows me to help swimmers and watch them progress. This is fulfilling as it proves that I am developing my teaching techniques.</p>
+          </div>
+
+          <button class="accordion"><p style="font-size:25px">Academia</p></button>
+          <div class="panel">
+            <p>I have a range of National 5, Highers and Advanced highers:<br>
+            <div class="row">
+              <div class="column">
+                National 5:<br>
+                <ul>
+                  <li>Music</li><br>
+                  <li>Maths</li><br>
+                  <li>English</li><br>
+                  <li>Chemistry</li><br>
+                  <li>Computing Science</li><br>
+                  <li>Practical Cookery</li><br>
+                </ul>
+              </div>
+              <div class="column">
+                Highers:<br>
+                <ul>
+                  <li>Maths</li><br>
+                  <li>English</li><br>
+                  <li>Human Biology</li><br>
+                  <li>Applications of Maths</li><br>
+                  <li>Chemistry</li><br>
+                  <li>Admin</li><br>
+                </ul>
+              </div>
+              <div class="column">
+                Advanced Highers:<br>
+                <ul>
+                  <li>Music</li><br>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <button class="accordion"><p style="font-size:25px">Hobbies and Interests</p></button>
+          <div class="panel">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+          </div>
+        </div>
+        <div style="float:right;width:50%"> 
+          <img height= 400 width= 500 alt="ca4/public/images/20230924_161329769_iOS" src="images/20230924_161329769_iOS.jpg"/>
+        </div>
+      </div>
+    </body>
+</html>
+
+<script>
+  var acc = document.getElementsByClassName("accordion");
+  var i;
+
+  for (i = 0; i < acc.length; i++) {
+    acc[i].addEventListener("click", function() {
+      this.classList.toggle("open");
+      var panel = this.nextElementSibling;
+      if (panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
+        panel.style.display = "block";
+      }
+    });
+  }
+</script>
+
+<style>
+  .accordion {
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    transition: 0.4s;
+  }
+  
+  .open, .accordion:hover {
+    background-color: black;
+    border-bottom: solid 4px rgb(255, 234, 0) !important;
+  }
+
+  .panel {
+    padding: 0 18px;
+    background-color: black;
+    display: none;
+    overflow: hidden;
+    color: white;
+
+  }
+
+  .accordion:after {
+    content: '\002B';
+    color: white;
+    font-weight: bold;
+    float: right;
+    margin-left: 5px;
+  }
+
+  .open:after {
+    content: "\2212";
+  }
+         
+  .column {
+    float: left;
+    width: 33.33%;
+  }
+
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+</style>
