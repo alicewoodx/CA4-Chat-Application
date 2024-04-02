@@ -33,27 +33,19 @@ io.on("connection", function (socket) {
       io.emit("user disconnected", socket.userId);
     });
 
-    socket.on("chat message", function (data) {
+  socket.on("chat message", function (data) {
       io.emit("chat message", data);
   });
 
+  socket.on('typing', (data)=>{
+    console.log("typing")
+      if(data.typing==true)
+         io.emit('display', data)
+      else
+         io.emit('display', data)
+    })
+
 });
 
-var acc = document.getElementsByClassName("accordion");
-var i;
 
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-    /* Toggle between adding and removing the "active" class,
-    to highlight the button that controls the panel */
-    this.classList.toggle("active");
-
-    /* Toggle between hiding and showing the active panel */
-    var panel = this.nextElementSibling;
-    if (panel.style.display === "block") {
-      panel.style.display = "none";
-    } else {
-      panel.style.display = "block";
-    }
-  });
-}
+  

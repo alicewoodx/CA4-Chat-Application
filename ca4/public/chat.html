@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alice's Chatroom</title>
-    <link rel="stylesheet" href="css/demo.css"/>
-      <href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="js/client.js" async defer></script>
-        <script src="/socket.io/socket.io.js"></script>
-        <script src="/js/client.js"></script>
+    <link rel="stylesheet" href="/css/demo.css" />
+    <href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </head>
   <body>
     <div class="divHeader" style="display:flex;justify-content:space-between">
@@ -32,19 +29,17 @@
 
       </div>
       
-      
       <br>
       <hr>
       <div class="content">
         <div class="messages__history"></div>
           <div class="fallback"></div>
         <div class="inbox__messages">
-            
-          
         </div>
 
         <form class="message_form">
-            <input type="text" class="message_form__input" placeholder="Type a message" />
+            <div id="isTypingMessage" style="display:none"> SOMEONE is typing.. </div>
+            <input id="textbox" type="text" class="message_form__input" placeholder="Type a message" />
             <button class="message_form__button" type="submit">
               Enter
             </button>
@@ -55,3 +50,30 @@
     <script src="/js/client.js"></script>
   </body>
 </html>
+
+<script>
+  $(document).ready(function(){
+    console.log("here")
+      $('#textbox').keypress((e)=>{
+        if(e.which!=13){
+          typing=true
+          socket.emit('typing', { typing:true})
+          clearTimeout(timeout)
+          timeout=setTimeout(typingTimeout, 3000)
+        }else{
+          clearTimeout(timeout)
+          typingTimeout()
+          //sendMessage() function will be called once the user hits enter
+          sendMessage()
+        }
+      })
+
+      //code explained later
+      socket.on('display', (data)=>{
+        if(data.typing==true)
+          $('.typing').text(`${data.user} is typing...`)
+        else
+          $('.typing').text("")
+      })
+ })
+  </script>

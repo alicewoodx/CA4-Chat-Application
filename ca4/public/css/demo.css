@@ -79,3 +79,33 @@ img {
   width:50%;
   float:right;
 }
+
+.sidenav{
+ float:left;
+ font-size: 20px;
+ margin: 20px;
+
+}
+
+form{
+
+  float: right;
+  margin: 0px;
+}
+
+.message_form__button{
+  width: 300px;
+  length: 200px;
+  height: 55px;
+}
+
+.message_form__input{
+  width: 700px;
+  length: 200px;
+  height: 50px;
+}
+
+.messages__history{
+  height:70vh !important;
+  overflow-y:scroll;
+}
