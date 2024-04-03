@@ -12,7 +12,7 @@
   <body>
     <div class="divHeader" style="display:flex;justify-content:space-between">
         <div>
-            <p class="header">My Portfolio</p>
+            <p class="header">Alice's Chatroom</p>
         </div>
         <div style="float:right;padding:10px">
           <nav>
@@ -26,7 +26,6 @@
         <div class="inbox__people">
           <h4 style="color:yellow;">Active users</h4>
         </div>
-
       </div>
       
       <br>
@@ -38,7 +37,7 @@
         </div>
 
         <form class="message_form">
-            <div id="isTypingMessage" style="display:none"> SOMEONE is typing.. </div>
+            <div class="infoBox"></div>
             <input id="textbox" type="text" class="message_form__input" placeholder="Type a message" />
             <button class="message_form__button" type="submit">
               Enter
@@ -53,27 +52,27 @@
 
 <script>
   $(document).ready(function(){
-    console.log("here")
       $('#textbox').keypress((e)=>{
-        if(e.which!=13){
-          typing=true
-          socket.emit('typing', { typing:true})
-          clearTimeout(timeout)
-          timeout=setTimeout(typingTimeout, 3000)
-        }else{
-          clearTimeout(timeout)
-          typingTimeout()
-          //sendMessage() function will be called once the user hits enter
-          sendMessage()
-        }
+        socket.emit('typing')
       })
 
-      //code explained later
-      socket.on('display', (data)=>{
-        if(data.typing==true)
-          $('.typing').text(`${data.user} is typing...`)
-        else
-          $('.typing').text("")
+      socket.on('display', function (data){
+        $('.infoBox').text(`${data} is typing...`)
+        setTimeout(clearMessage, 2000)
+      }) 
+
+      socket.on('displayJoining', function (data){
+        $('.infoBox').text(`${data} has joined...`)
+        setTimeout(clearMessage, 2000)
+      }) 
+
+      socket.on('displayLeaving', function (data){
+        $('.infoBox').text(`${data} is leaving...`)
+        setTimeout(clearMessage, 2000)
       })
- })
+  })
+
+  function clearMessage(){
+    $('.infoBox').text(``)
+  }
   </script>
