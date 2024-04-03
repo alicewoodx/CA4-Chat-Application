@@ -84,6 +84,9 @@ img {
  float:left;
  font-size: 20px;
  margin: 20px;
+ border-right: 2px dotted white;
+ height: 500px;
+ padding-right: 40px;
 
 }
 
@@ -97,6 +100,7 @@ form{
   width: 300px;
   length: 200px;
   height: 55px;
+  margin:0px;
 }
 
 .message_form__input{
